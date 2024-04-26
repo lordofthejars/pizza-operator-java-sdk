@@ -1,0 +1,11 @@
+apiVersion: org.acme/v1
+kind: PizzaOperatorCustomResource
+metadata:
+  name: meats
+spec:
+  toppings:
+  - mozzarella 
+  - pepperoni 
+  - sausage
+  - bacon 
+  sauce: extra

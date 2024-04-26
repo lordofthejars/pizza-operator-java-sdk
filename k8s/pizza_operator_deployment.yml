@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pizza-operator
+spec:
+  selector:
+    matchLabels:
+      app: pizza-operator
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: pizza-operator
+    spec:
+      serviceAccountName: pizza-operator
+      containers:
+      - name: operator
+        image: quay.io/lordofthejars/pizza-operator:1.0.2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
